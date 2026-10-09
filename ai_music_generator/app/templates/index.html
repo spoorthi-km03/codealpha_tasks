@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Music Studio</title><link rel="stylesheet" href="/static/style.css"></head><body>
+<header><div class="logo"><span class="dot"></span>AI&nbsp;Music&nbsp;Studio</div><div id="model" class="pill">Checking model…</div></header>
+<main>
+<section class="panel" id="settings"><h2>Settings</h2>
+<label>Genre <select id="genre"></select></label>
+<label>Mood <select id="mood">{% for m in moods %}<option>{{m}}</option>{% endfor %}</select></label>
+<label>Instrument <select id="instrument">{% for i in instruments %}<option>{{i}}</option>{% endfor %}</select></label>
+<label>Tempo: <b id="bpmv">100</b> BPM <input id="bpm" type="range" min="40" max="220" value="100"></label>
+<label>Duration <select id="duration"><option>15</option><option selected>30</option><option>60</option><option>90</option></select> seconds</label>
+<label>Starting notes (optional) <input id="notes" placeholder="C4, E4, G4"></label>
+<label>Extra instructions (optional) <textarea id="text" rows="2" placeholder="e.g. calm and gentle"></textarea></label>
+<p class="hint">Genres come from the trained model's data. Mood changes sampling randomness, loudness and note length (not learned). Free text only matches mood keywords.</p>
+<button id="gen" class="primary">♪ Generate Music</button></section>
+<section class="panel" id="track"><h2>Generated Track</h2>
+<div id="state" class="state">Choose settings and press Generate.</div>
+<canvas id="wave" height="160"></canvas>
+<div id="info"></div>
+<div class="controls"><button id="play" disabled>▶ Play</button><button id="stop" disabled>■ Stop</button>
+<a id="dlmid" class="btn disabled" download>Download MIDI</a><a id="dlwav" class="btn disabled" download>Download WAV</a></div>
+<audio id="audio"></audio></section>
+</main><script src="/static/app.js"></script></body></html>
