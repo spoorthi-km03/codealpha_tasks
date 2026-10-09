@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>College FAQ Assistant</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="brand">
+      <div class="logo">🎓</div>
+      <div>
+        <h1>College FAQ Assistant</h1>
+        <div class="status"><span class="dot"></span>Online · Ask me about admissions, fees, hostel &amp; more</div>
+      </div>
+    </div>
+    <button id="clearBtn" class="btn-clear" type="button">Clear Chat</button>
+  </header>
+  <main class="body">
+    <aside class="side">
+      <h2>Suggested questions</h2>
+      <div id="suggestions" class="chips">
+        <button class="chip" type="button">How do I apply for admission?</button>
+        <button class="chip" type="button">What is the fee structure for B.Tech?</button>
+        <button class="chip" type="button">What scholarships are available?</button>
+        <button class="chip" type="button">Is hostel facility available?</button>
+        <button class="chip" type="button">What are the library timings?</button>
+        <button class="chip" type="button">What is the minimum attendance required?</button>
+        <button class="chip" type="button">What is the average placement package?</button>
+        <button class="chip" type="button">How can I contact the college?</button>
+      </div>
+    </aside>
+    <section class="chat">
+      <div id="messages" class="messages" aria-live="polite"></div>
+      <div class="inputbar">
+        <input id="userInput" type="text" placeholder="Type your question here..." autocomplete="off" maxlength="500">
+        <button id="sendBtn" class="btn-send" type="button">Send ➤</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
